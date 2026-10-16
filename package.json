@@ -1,7 +1,7 @@
 {
-  "name": "screenity",
-  "version": "4.6.12",
-  "description": "The free and privacy-friendly screen recorder with no sign in needed.",
+  "name": "gravador-xopi",
+  "version": "1.0.0",
+  "description": "Gravador de tela, câmera e reuniões gratuito e privado (fork do Screenity).",
   "scripts": {
     "build": "cross-env NODE_ENV=production node utils/build.js",
     "build:dev": "cross-env NODE_ENV=development SCREENITY_DEV_MODE=true node utils/build.js",
@@ -121,5 +121,9 @@
   "overrides": {
     "tar": "7.5.9",
     "minimatch": "10.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Juliano2105/gravador-xopi.git"
   }
 }

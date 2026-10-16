@@ -8,6 +8,7 @@ import { diagForward } from "../../../utils/diagForward";
 import { showEditorToast } from "../../utils/editorToast";
 
 import { ReactSVG } from "react-svg";
+import { isDriveConfigured } from "../../../../brand.config";
 
 const URL =
   "chrome-extension://" + chrome.i18n.getMessage("@@extension_id") + "/assets/";
@@ -858,6 +859,7 @@ const RightPanel = () => {
               </div>
             </div>
           </div>
+          {isDriveConfigured() && (
           <div className={styles.section}>
             <div className={styles.sectionTitle}>
               {chrome.i18n.getMessage("sandboxSaveTitle")}
@@ -905,6 +907,7 @@ const RightPanel = () => {
               </div>
             </div>
           </div>
+          )}
           <div className={styles.section}>
             <div className={styles.sectionTitle}>
               {chrome.i18n.getMessage("sandboxExportTitle")}

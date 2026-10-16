@@ -8,6 +8,7 @@ import {
 import { instanceForSlot } from "../../utils/chunkStores";
 import signIn from "../modules/signIn";
 import { diagEvent } from "../../utils/diagnosticLog";
+import { BRAND } from "../../../brand.config";
 
 const findOrCreateScreenityFolder = async (token) => {
   const headers = new Headers({
@@ -16,7 +17,7 @@ const findOrCreateScreenityFolder = async (token) => {
   });
 
   const query = encodeURIComponent(
-    `name='Screenity' and mimeType='application/vnd.google-apps.folder' and trashed=false`
+    `name='${BRAND.driveFolderName}' and mimeType='application/vnd.google-apps.folder' and trashed=false`
   );
 
   const searchRes = await fetch(
@@ -38,7 +39,7 @@ const findOrCreateScreenityFolder = async (token) => {
     method: "POST",
     headers,
     body: JSON.stringify({
-      name: "Screenity",
+      name: BRAND.driveFolderName,
       mimeType: "application/vnd.google-apps.folder",
     }),
   });
@@ -126,7 +127,7 @@ const sanitizeDriveName = (raw) => {
   let out = String(raw ?? "");
   out = out.replace(/[\x00-\x1f\x7f]/g, " ");
   out = out.replace(/\s+/g, " ").trim();
-  if (!out) out = "Screenity Recording";
+  if (!out) out = "Gravação XOPI";
   if (out.length > 200) out = out.slice(0, 200).trim();
   return out;
 };
@@ -459,7 +460,7 @@ export const handleSaveToDrive = async (request, fallback = false, tabId = null)
       // the filename. Read it as a disk-backed File (never materialized whole)
       // and let uploadResumable stream it in 8 MB chunks.
       const ext = request.isWebm ? ".webm" : ".mp4";
-      const fileName = (request.title || "Screenity Recording") + ext;
+      const fileName = (request.title || "Gravação XOPI") + ext;
       let opfsFile;
       try {
         const dir = await navigator.storage.getDirectory();
@@ -490,7 +491,7 @@ export const handleSaveToDrive = async (request, fallback = false, tabId = null)
     } else if (!fallback) {
       const blob = base64ToUint8Array(request.base64);
       const ext = request.isWebm ? ".webm" : ".mp4";
-      const fileName = (request.title || "Screenity Recording") + ext;
+      const fileName = (request.title || "Gravação XOPI") + ext;
       response = await saveToDrive(blob, fileName);
     } else {
       // viewer/recovery mode: rebuild blob from IndexedDB chunks
@@ -526,7 +527,7 @@ export const handleSaveToDrive = async (request, fallback = false, tabId = null)
         c.chunk instanceof Blob ? c.chunk : new Blob([c.chunk])
       );
       const blob = new Blob(parts, { type: "video/webm" });
-      const fileName = (request.title || "Screenity Recording") + ".webm";
+      const fileName = (request.title || "Gravação XOPI") + ".webm";
       response = await saveToDrive(blob, fileName);
     }
 

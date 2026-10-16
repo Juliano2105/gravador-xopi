@@ -2869,7 +2869,7 @@ const ContentState = (props) => {
     out = out.replace(/\s+/g, " ").trim();
     out = out.replace(/[. ]+$/g, "");
 
-    if (!out) out = "Screenity recording";
+    if (!out) out = "Gravação XOPI";
     if (out.length > maxLen) out = out.slice(0, maxLen).trim();
 
     return out;
@@ -2887,7 +2887,7 @@ const ContentState = (props) => {
       downloadError: null,
     }));
 
-    const rawTitle = contentStateRef.current.title || "Screenity recording";
+    const rawTitle = contentStateRef.current.title || "Gravação XOPI";
 
     const base = sanitizeDownloadFilename(rawTitle);
     const filename = `${base}${ext}`;

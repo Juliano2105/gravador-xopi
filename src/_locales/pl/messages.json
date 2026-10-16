@@ -1,6 +1,6 @@
 {
   "reviewAskTitle": {
-    "message": "Jak Ci się korzysta ze Screenity?",
+    "message": "Jak Ci się korzysta ze Gravador XOPI?",
     "description": "Review prompt step 1 question (sentiment check) in the editor"
   },
   "reviewAskGood": {
@@ -16,7 +16,7 @@
     "description": "Review prompt happy-branch title in the editor"
   },
   "reviewThanksDescription": {
-    "message": "Jestem Alyssa, twórczyni Screenity, działam sama. Pierwszą wersję zrobiłam w 2020 roku i do dziś aktywnie utrzymuję darmowe rozszerzenie.\n\nJeśli Screenity Ci pomogło, krótka recenzja to jeden z najlepszych sposobów, żeby je wesprzeć ❤️",
+    "message": "Jestem Alyssa, twórczyni Gravador XOPI, działam sama. Pierwszą wersję zrobiłam w 2020 roku i do dziś aktywnie utrzymuję darmowe rozszerzenie.\n\nJeśli Gravador XOPI Ci pomogło, krótka recenzja to jeden z najlepszych sposobów, żeby je wesprzeć ❤️",
     "description": "Review prompt happy-branch description (founder voice) in the editor. Paragraphs separated by a blank line."
   },
   "reviewThanksButton": {
@@ -32,7 +32,7 @@
     "description": "Review prompt unhappy-branch title in the editor"
   },
   "reviewSorryDescription": {
-    "message": "Jestem Alyssa, twórczyni Screenity, i każdą wiadomość czytam osobiście. Napisz mi, co poszło nie tak, a zrobię, co w mojej mocy, żeby to naprawić.",
+    "message": "Jestem Alyssa, twórczyni Gravador XOPI, i każdą wiadomość czytam osobiście. Napisz mi, co poszło nie tak, a zrobię, co w mojej mocy, żeby to naprawić.",
     "description": "Review prompt unhappy-branch description in the editor"
   },
   "reviewSorryButton": {
@@ -44,11 +44,11 @@
     "description": "Review prompt dismiss button on the unhappy branch"
   },
   "extName": {
-    "message": "Screenity - Nagrywarka & Edytor adnotacji",
+    "message": "Gravador XOPI - Nagrywarka & Edytor adnotacji",
     "description": "Nazwa rozszerzenia"
   },
   "extDesc": {
-    "message": "Najlepszy darmowy rejestrator ekranu bez ograniczeń. Przechwytuj, adnotuj, przybliżaj, rozmywaj, edytuj filmy i wiele więcej - bez konieczności logowania i przyjazny dla prywatności.",
+    "message": "Record your screen, a tab, an area or your camera with mic and system audio. Annotate, edit, export to MP4. Free and private.",
     "description": "Opis rozszerzenia"
   },
   "recordTab": {
@@ -92,7 +92,7 @@
     "description": "Tytuł modalnego okienka ostrzeżenia o uprawnieniach kamery / mikrofonu"
   },
   "permissionsModalDescription": {
-    "message": "Wygląda na to, że Screenity nie ma dostępu do twojej kamery lub mikrofonu. Upewnij się, że zezwoliłeś na dostęp, klikając ikonę kamery w pasku adresu.",
+    "message": "Wygląda na to, że Gravador XOPI nie ma dostępu do twojej kamery lub mikrofonu. Upewnij się, że zezwoliłeś na dostęp, klikając ikonę kamery w pasku adresu.",
     "description": "Opis modalnego okienka ostrzeżenia o uprawnieniach kamery / mikrofonu"
   },
   "permissionsModalDismiss": {
@@ -112,7 +112,7 @@
     "description": "Modal title shown when the editor cannot read the recording file from the device's storage"
   },
   "opfsLoadErrorDescription": {
-    "message": "Wygląda na to, że Screenity nie mógł załadować nagrania z pamięci urządzenia. Mogło zostać usunięte lub przeniesione. Jeśli problem się powtarza, skontaktuj się z nami pod adresem support@screenity.io.",
+    "message": "Wygląda na to, że Gravador XOPI nie mógł załadować nagrania z pamięci urządzenia. Mogło zostać usunięte lub przeniesione. Jeśli problem się powtarza, skontaktuj się z nami pod adresem support@screenity.io.",
     "description": "Modal description shown when the editor cannot read the recording file from the device's storage"
   },
   "recordingWriterFailedToast": {
@@ -552,7 +552,7 @@
     "description": "Przycisk etykiety offline Spróbuj ponownie"
   },
   "serverIssueTitle": {
-    "message": "Screenity jest niedostępne",
+    "message": "Gravador XOPI jest niedostępne",
     "description": "Title shown when the Screenity API is returning server errors"
   },
   "serverIssueDescription": {
@@ -560,7 +560,7 @@
     "description": "Description shown when the Screenity API is returning server errors"
   },
   "serverUnreachableTitle": {
-    "message": "Nie można połączyć się ze Screenity",
+    "message": "Nie można połączyć się ze Gravador XOPI",
     "description": "Title shown when the Screenity API cannot be reached"
   },
   "serverUnreachableDescription": {
@@ -740,11 +740,11 @@
     "description": "Tytuł modalnego powiadomienia o wstrzymanym nagrywaniu"
   },
   "chromePermissionsModalTitle": {
-    "message": "Screenity nie ma uprawnień do nagrywania twojego ekranu",
+    "message": "Gravador XOPI nie ma uprawnień do nagrywania twojego ekranu",
     "description": "Tytuł okna modalnego z uprawnieniami"
   },
   "chromePermissionsModalDescription": {
-    "message": "Aby włączyć nagrywanie ekranu, musisz udzielić Screenity uprawnień do przechwytywania twojego ekranu, gdy zostaniesz o to poproszony.",
+    "message": "Aby włączyć nagrywanie ekranu, musisz udzielić Gravador XOPI uprawnień do przechwytywania twojego ekranu, gdy zostaniesz o to poproszony.",
     "description": "Opis okna modalnego z uprawnieniami"
   },
   "chromePermissionsModalAction": {
@@ -772,7 +772,7 @@
     "description": "Anuluj w modalnym komunikacie o wyciszonym mikrofonie"
   },
   "setupTitle": {
-    "message": "Rozpocznij korzystanie z Screenity w trzech prostych krokach:",
+    "message": "Rozpocznij korzystanie z Gravador XOPI w trzech prostych krokach:",
     "description": "Tytuł kroków konfiguracji"
   },
   "setupStep1Before": {
@@ -796,7 +796,7 @@
     "description": "Krok 3 konfiguracji, przed ikoną. Wymaga spacji na końcu."
   },
   "setupStep3After": {
-    "message": " Screenity, aby rozpocząć",
+    "message": " Gravador XOPI, aby rozpocząć",
     "description": "Krok 3 konfiguracji, po ikonie. Wymaga spacji na początku."
   },
   "setupCompleteTitle": {
@@ -856,7 +856,7 @@
     "description": "Przycisk zatrzymywania nagrywania na ekranie nagrywania"
   },
   "updateAnnouncementTitle": {
-    "message": "Witaj w nowym Screenity!",
+    "message": "Witaj w nowym Gravador XOPI!",
     "description": "Tytuł ogłoszenia o aktualizacji dla istniejących użytkowników"
   },
   "updateAnnouncementDescription": {
@@ -884,11 +884,11 @@
     "description": "Title of the modal shown when a cloud recording is refused because the account has no active subscription"
   },
   "accountErrorModalDescription": {
-    "message": "Screenity nie mógł rozpocząć nagrywania w chmurze, bo to konto nie ma aktywnej subskrypcji. Twoje nagrania i ustawienia są bezpieczne.",
+    "message": "Gravador XOPI nie mógł rozpocząć nagrywania w chmurze, bo to konto nie ma aktywnej subskrypcji. Twoje nagrania i ustawienia są bezpieczne.",
     "description": "Body shown when the account has never had an active subscription (server: upgrade_required)"
   },
   "accountErrorModalDescriptionLapsed": {
-    "message": "Screenity nie mógł rozpocząć nagrywania w chmurze, bo dostęp Pro tego konta wygasł. Twoje nagrania i ustawienia są bezpieczne.",
+    "message": "Gravador XOPI nie mógł rozpocząć nagrywania w chmurze, bo dostęp Pro tego konta wygasł. Twoje nagrania i ustawienia są bezpieczne.",
     "description": "Body shown when the account's subscription has ended (server: reactivate_required)"
   },
   "accountErrorModalAction": {
@@ -900,7 +900,7 @@
     "description": "Title of the modal shown when a cloud recording is refused because the session expired, not the subscription"
   },
   "authErrorModalDescription": {
-    "message": "Screenity nie mógł rozpocząć nagrywania w chmurze, bo sesja wygasła. Twoja subskrypcja, nagrania i ustawienia są bezpieczne.",
+    "message": "Gravador XOPI nie mógł rozpocząć nagrywania w chmurze, bo sesja wygasła. Twoja subskrypcja, nagrania i ustawienia są bezpieczne.",
     "description": "Body shown when the session/token failed; the account may well be a paying subscriber"
   },
   "authErrorModalAction": {
@@ -956,7 +956,7 @@
     "description": "Tytuł komunikatu o braku miejsca"
   },
   "notEnoughSpaceDescription": {
-    "message": "Aby korzystać z Screenity, potrzebujesz co najmniej 1 GB wolnej przestrzeni. Proszę zwolnij miejsce na urządzeniu i spróbuj ponownie.",
+    "message": "Aby korzystać z Gravador XOPI, potrzebujesz co najmniej 1 GB wolnej przestrzeni. Proszę zwolnij miejsce na urządzeniu i spróbuj ponownie.",
     "description": "Opis komunikatu o braku miejsca"
   },
   "clearSpaceButton": {
@@ -988,7 +988,7 @@
     "description": "Tytuł okna modalnego surowego nagrania"
   },
   "rawRecordingModalDescription": {
-    "message": "Surowy plik wideo to oryginalny plik wideo nagrany przez Screenity. Ten film nie został przetworzony ani zedytowany, dlatego może być bardzo duży i niekoniecznie da się go odtworzyć na wszystkich urządzeniach. Jeśli masz problemy z przetworzonym filmem, możesz użyć tego pliku do odzyskania swojego nagrania.",
+    "message": "Surowy plik wideo to oryginalny plik wideo nagrany przez Gravador XOPI. Ten film nie został przetworzony ani zedytowany, dlatego może być bardzo duży i niekoniecznie da się go odtworzyć na wszystkich urządzeniach. Jeśli masz problemy z przetworzonym filmem, możesz użyć tego pliku do odzyskania swojego nagrania.",
     "description": "Opis okna modalnego surowego nagrania"
   },
   "rawRecordingModalButton": {
@@ -1012,11 +1012,11 @@
     "description": "Tytuł okna modalnego z limitem ponad 5 minut"
   },
   "overLimitModalDescription": {
-    "message": "Ponieważ Screenity działa w sposób całkowicie prywatny i lokalnie, jest ograniczane przez sprzęt twojego urządzenia. Przetwarzanie filmu o tej długości zajęłoby zbyt dużo czasu i byłoby bardzo intensywne z punktu widzenia zasobów. Nie martw się, nadal możesz pobrać plik WEBM lub surowe nagranie, ale edycja i eksport do formatu MP4 nie są dostępne. Mimo to nadal możesz spróbować przetworzyć film, jeśli rozumiesz związane z tym ryzyko.",
+    "message": "Ponieważ Gravador XOPI działa w sposób całkowicie prywatny i lokalnie, jest ograniczane przez sprzęt twojego urządzenia. Przetwarzanie filmu o tej długości zajęłoby zbyt dużo czasu i byłoby bardzo intensywne z punktu widzenia zasobów. Nie martw się, nadal możesz pobrać plik WEBM lub surowe nagranie, ale edycja i eksport do formatu MP4 nie są dostępne. Mimo to nadal możesz spróbować przetworzyć film, jeśli rozumiesz związane z tym ryzyko.",
     "description": "Opis okna modalnego z limitem ponad 5 minut"
   },
   "overLimitModalDescriptionFastPath": {
-    "message": "Ponieważ Screenity działa w sposób całkowicie prywatny i lokalnie, jest ograniczane przez sprzęt twojego urządzenia. Przetwarzanie filmu o tej długości zajęłoby zbyt dużo czasu i byłoby bardzo intensywne z punktu widzenia zasobów. Twój plik MP4 jest gotowy do pobrania, ale edycja w przeglądarce nie jest dostępna dla tak długich nagrań. Mimo to nadal możesz spróbować przetworzyć film, jeśli rozumiesz związane z tym ryzyko.",
+    "message": "Ponieważ Gravador XOPI działa w sposób całkowicie prywatny i lokalnie, jest ograniczane przez sprzęt twojego urządzenia. Przetwarzanie filmu o tej długości zajęłoby zbyt dużo czasu i byłoby bardzo intensywne z punktu widzenia zasobów. Twój plik MP4 jest gotowy do pobrania, ale edycja w przeglądarce nie jest dostępna dla tak długich nagrań. Mimo to nadal możesz spróbować przetworzyć film, jeśli rozumiesz związane z tym ryzyko.",
     "description": "Over 5 minutes limit modal description when the recording is a native MP4 (fast recorder / WebCodecs)"
   },
   "overLimitModalButton": {
@@ -1058,7 +1058,7 @@
     "description": "Tytuł ostrzeżenia o nieobsługiwanym rozszerzeniu na karcie"
   },
   "extensionNotSupportedDescription": {
-    "message": "Screenity nie był obsługiwany na twojej poprzedniej karcie. Mimo to, możesz rozpocząć nagrywanie tutaj, a następnie przejść na inną kartę, ale kamera i pasek narzędzi nie będą widoczne.",
+    "message": "Gravador XOPI nie był obsługiwany na twojej poprzedniej karcie. Mimo to, możesz rozpocząć nagrywanie tutaj, a następnie przejść na inną kartę, ale kamera i pasek narzędzi nie będą widoczne.",
     "description": "Opis ostrzeżenia o nieobsługiwanym rozszerzeniu na karcie"
   },
   "backupsDescription1": {
@@ -1296,7 +1296,7 @@
     "description": "Button label to go to the dashboard in the popup"
   },
   "welcomePopupTitle": {
-    "message": "Witamy w Screenity",
+    "message": "Witamy w Gravador XOPI",
     "description": "Title for the welcome popup shown to new users"
   },
   "welcomePopupDescriptionTop": {
@@ -1356,7 +1356,7 @@
     "description": "Title shown when the user's subscription is inactive"
   },
   "inactiveSubscriptionDescription": {
-    "message": "Twoja subskrypcja Screenity Pro jest nieaktywna.",
+    "message": "Twoja subskrypcja Gravador XOPI Pro jest nieaktywna.",
     "description": "Description shown when the user's subscription is inactive"
   },
   "inactiveSubscriptionReactivation": {
@@ -1464,7 +1464,7 @@
     "description": "Pro banner title in the editor"
   },
   "proBannerDescription": {
-    "message": "Screenity zawsze będzie darmowe, open-source i bez reklam. Pro pokrywa koszty chmury i serwerów oraz wspiera rozwój przez solo indie devkę! ❤️",
+    "message": "Gravador XOPI zawsze będzie darmowe, open-source i bez reklam. Pro pokrywa koszty chmury i serwerów oraz wspiera rozwój przez solo indie devkę! ❤️",
     "description": "Pro banner description in the editor"
   },
   "proBannerAltButton": {
@@ -1496,15 +1496,15 @@
     "description": "Button to upgrade to Pro"
   },
   "hostBannerTitle": {
-    "message": "Korzystasz lokalnie ze Screenity? Wesprzyj jej dalszy rozwój!",
+    "message": "Korzystasz lokalnie ze Gravador XOPI? Wesprzyj jej dalszy rozwój!",
     "description": "Tytuł banera o samodzielnym hostowaniu w edytorze"
   },
   "hostBannerDescription": {
-    "message": "Screenity została stworzona przez niezależną programistkę. Samodzielne hostowanie jest darmowe, ale jeśli Ci się przydaje, rozważ wsparcie poprzez Pro ❤️",
+    "message": "Gravador XOPI została stworzona przez niezależną programistkę. Samodzielne hostowanie jest darmowe, ale jeśli Ci się przydaje, rozważ wsparcie poprzez Pro ❤️",
     "description": "Opis banera o samodzielnym hostowaniu w edytorze"
   },
   "welcomeBackPopupTitle": {
-    "message": "Witaj ponownie w Screenity",
+    "message": "Witaj ponownie w Gravador XOPI",
     "description": "Tytuł okienka powitalnego wyświetlanego powracającym użytkownikom"
   },
   "welcomeBackProTitle": {
@@ -1512,15 +1512,15 @@
     "description": "Tytuł funkcji przechowywania w chmurze w okienku powitalnym"
   },
   "welcomeBackProDescription": {
-    "message": "Screenity Pro to nowa, opcjonalna platforma do zapisywania nagrań w chmurze, udostępniania ich za pomocą linku i odblokowania zaawansowanych narzędzi do edycji — jeśli i kiedy ich potrzebujesz.",
+    "message": "Gravador XOPI Pro to nowa, opcjonalna platforma do zapisywania nagrań w chmurze, udostępniania ich za pomocą linku i odblokowania zaawansowanych narzędzi do edycji — jeśli i kiedy ich potrzebujesz.",
     "description": "Opis funkcji przechowywania w chmurze w okienku powitalnym"
   },
   "welcomeBackProCTA": {
-    "message": "Dowiedz się więcej o Screenity Pro",
+    "message": "Dowiedz się więcej o Gravador XOPI Pro",
     "description": "Przycisk wezwania do działania dla funkcji chmury w okienku powitalnym"
   },
   "welcomeToProTitleModal": {
-    "message": "Witamy w Screenity Pro",
+    "message": "Witamy w Gravador XOPI Pro",
     "description": "Tytuł okna powitalnego Pro"
   },
   "welcomeToProDescriptionModal": {
@@ -1540,7 +1540,7 @@
     "description": "WebCodecs failure auto-disable toast"
   },
   "proOnboardingWelcomeTitle": {
-    "message": "Witamy w rozszerzeniu Screenity Pro",
+    "message": "Witamy w rozszerzeniu Gravador XOPI Pro",
     "description": "Pro onboarding welcome step title"
   },
   "proOnboardingWelcomeDescription": {
@@ -1684,7 +1684,7 @@
     "description": "Toast shown before the screen picker reopens because system audio could not start and capture is retrying without it"
   },
   "editorRecoveryToast": {
-    "message": "Nagranie zostało zapisane. Edytor się nie otworzył. Kliknij ikonę Screenity, aby spróbować ponownie.",
+    "message": "Nagranie zostało zapisane. Edytor się nie otworzył. Kliknij ikonę Gravador XOPI, aby spróbować ponownie.",
     "description": "Toast shown on the active tab when the post-recording editor tab fails to open"
   },
   "stopAckTimeoutToast": {
@@ -1727,7 +1727,7 @@
     "message": "Nagranie wciąż się przygotowuje…"
   },
   "editorStuckDescription": {
-    "message": "Ładowanie nagrania w Screenity trwa dłużej niż zwykle. Twoje dane mogą wciąż być na tym urządzeniu. Spróbuj je odzyskać lub skontaktuj się z nami, jeśli nie wrócą."
+    "message": "Ładowanie nagrania w Gravador XOPI trwa dłużej niż zwykle. Twoje dane mogą wciąż być na tym urządzeniu. Spróbuj je odzyskać lub skontaktuj się z nami, jeśli nie wrócą."
   },
   "editorStuckTryRecover": {
     "message": "Spróbuj odzyskać"

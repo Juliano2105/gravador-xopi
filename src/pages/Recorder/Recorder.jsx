@@ -551,8 +551,8 @@ const Recorder = () => {
         } else {
           msPath = "create-fresh";
           navigator.mediaSession.metadata = new window.MediaMetadata({
-            title: "Screenity recording",
-            artist: "Screenity",
+            title: "Gravação XOPI",
+            artist: "Gravador XOPI",
           });
           navigator.mediaSession.playbackState = "playing";
           try {

@@ -1,23 +1,11 @@
-import { supportContextQuery } from "../../utils/buildSupportContext";
-
-const UNINSTALL_FORM = "https://tally.so/r/3Ex6kX";
-
+// Gravador XOPI: pesquisa de desinstalação desativada (a original enviava
+// os usuários para o formulário do autor do Screenity).
 export const syncUninstallSurvey = async () => {
   try {
-    const { isLoggedIn } = await chrome.storage.local.get("isLoggedIn");
-    if (isLoggedIn) {
-      chrome.runtime.setUninstallURL("");
-      return;
-    }
-    const qs = await supportContextQuery({ source: "uninstall" });
-    chrome.runtime.setUninstallURL(`${UNINSTALL_FORM}?${qs}`);
+    chrome.runtime.setUninstallURL("");
   } catch {}
 };
 
 export const initUninstallSurvey = () => {
   syncUninstallSurvey();
-  chrome.storage.onChanged.addListener((changes, area) => {
-    if (area !== "local" || !changes.isLoggedIn) return;
-    syncUninstallSurvey();
-  });
 };

@@ -1,89 +1,66 @@
-# Screenity
+# Gravador XOPI 🎥
 
-> _✨ Screenity's open source work is sponsored by_
-> ### Recall.ai - API for desktop recording [<img src="https://github.com/user-attachments/assets/eee643f1-1b64-4d14-bb04-498c321fd937" align="right">](https://www.recall.ai/product/desktop-recording-sdk?utm_source=github&utm_medium=sponsorship&utm_campaign=alyssaxuu-screenity)
->
-> If you’re looking for a hosted desktop recording API, consider checking out [Recall.ai](https://www.recall.ai/product/desktop-recording-sdk?utm_source=github&utm_medium=sponsorship&utm_campaign=alyssaxuu-screenity), an API that records Zoom, Google Meet, Microsoft Teams, in-person meetings, and more.
+Gravador de tela gratuito e privado para o Chrome: grava a **tela inteira**, uma **aba**, uma **área** ou a **câmera**, com **microfone** e **som do sistema**. Dá para anotar na tela, editar (cortar, aparar, recortar) e exportar em **MP4, WebM ou GIF**. Tudo roda no seu computador — nenhum vídeo é enviado para servidor nenhum.
 
-[![jiewjjc232](https://github.com/alyssaxuu/screenity/assets/7581348/ed55e52e-4adf-442b-b774-6856abacdffb)](https://screenity.io)
+> Este projeto é um fork do **[Screenity](https://github.com/alyssaxuu/screenity)**, criado por [Alyssa X](https://alyssax.com), distribuído sob a licença **GPL-3.0**. Todo o crédito pelo gravador original é dela. Se quiser apoiar o projeto original, conheça o [Screenity Pro](https://screenity.io/pro).
 
-The free and privacy-friendly screen recorder with no limits 🎥
+## O que muda em relação ao Screenity original
 
-[Get it now - it's free!](https://chrome.google.com/webstore/detail/screenity-screen-recorder/kbbdabhdfibnancpjfhlkhafgdilcnji)
+- Nome e logo próprios (Gravador XOPI).
+- Sempre em **modo 100% local**: sem login, sem nuvem, sem recursos do Screenity Pro.
+- Sem pesquisa de desinstalação e sem pedido de avaliação apontando para o autor original.
+- "Reportar problema" abre as issues deste repositório.
+- Botão "Salvar no Google Drive" só aparece quando você configura um OAuth Client ID próprio (veja abaixo).
+- Publicação automática na Chrome Web Store via GitHub Actions.
 
-Screenity is a powerful privacy-friendly screen recorder and annotation tool to make better videos for work, education, and more. You can create stunning product demos, tutorials, presentations, or share feedback with your team - all for free.
+Os links de "Ajuda" continuam apontando para a central de ajuda do Screenity, que descreve os mesmos recursos.
 
-<a href="https://www.producthunt.com/posts/screenity?utm_source=badge-top-post-badge&utm_medium=badge&utm_source=badge-screenity" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/top-post-badge.svg?post_id=275308&theme=light&period=daily" alt="Screenity - The most powerful screen recorder for Chrome | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
-<a href="https://news.ycombinator.com/item?id=25150804" target="_blank"><img height=53 src="https://hackerbadge.now.sh/api?id=25150804&type=orange" alt="Featured on HackerNews"></a>
+## Como as atualizações chegam aos usuários
 
-> Want to support the project (and the solo developer behind it)?  
->
-> Check out [**Screenity Pro**](https://screenity.io/pro): a privacy-friendly, EU-hosted platform with link sharing, multi-scene editing, zoom keyframes, captions, and more ❤️  
+1. Você faz um commit na branch `main` (pelo GitHub ou localmente).
+2. O workflow `.github/workflows/publicar-chrome-web-store.yml` compila a extensão, gera uma versão nova automaticamente (`1.0.<número da execução>`) e envia para a Chrome Web Store.
+3. Depois da revisão do Google, o Chrome de quem tem a extensão instalada atualiza sozinho.
 
-Made by [Alyssa X](https://alyssax.com)
+Para fazer um commit **sem** publicar, coloque `[skip publish]` na mensagem do commit.
+O `.zip` de cada versão também fica salvo na aba **Actions** do GitHub.
 
-## Table of contents
-- [Screenity](#screenity)
-	- [Table of contents](#table-of-contents)
-	- [Features](#features)
-	- [Self-hosting Screenity](#self-hosting-screenity)
-	- [Creating a development version](#creating-a-development-version)
-		- [Enabling Save to Google Drive](#enabling-save-to-google-drive)
-	- [Acknowledgements](#acknowledgements)
+### Segredos necessários (Settings → Secrets and variables → Actions)
 
-## Features
+| Segredo | O que é |
+|---|---|
+| `CWS_EXTENSION_ID` | ID da extensão na loja (aparece depois do 1º envio manual) |
+| `CWS_CLIENT_ID` | OAuth Client ID do Google Cloud (tipo "App para computador") |
+| `CWS_CLIENT_SECRET` | OAuth Client Secret |
+| `CWS_REFRESH_TOKEN` | Refresh token com o escopo `https://www.googleapis.com/auth/chromewebstore` |
 
-🎥 Make unlimited recordings of your tab, a specific area, desktop, any application, or camera<br>
-🎙️ Record your microphone or internal audio, and use features like push to talk<br>
-✏️ Annotate by drawing anywhere on the screen, adding text, arrows, shapes, and more<br>
-✨ Use AI-powered camera backgrounds or blur to enhance your recordings<br>
-🔎 Zoom in smoothly in your recordings to focus on specific areas<br>
-🪄 Blur out any sensitive content of any page to keep it private<br>
-✂️ Remove or add audio, cut, trim, or crop your recordings with a comprehensive editor<br>
-👀 Highlight your clicks and cursor, and go in spotlight mode<br>
-⏱️ Set up alarms to automatically stop your recording<br>
-💾 Export as mp4, gif, and webm, or save the video directly to Google Drive to share a link<br>
-⚙️ Set a countdown, hide parts of the UI, or move it anywhere<br>
-🔒 Only you can see your videos, we don’t collect any of your data. You can even go offline!<br>
-💙 No limits, make as many videos as you want, for as long as you want<br> …and much more - all for free & no sign in needed!
+Enquanto esses segredos não existirem, o workflow só compila e guarda o `.zip`.
 
-## Self-hosting Screenity
-> 🛠️ Note: When self-hosted, the extension runs entirely in local-only mode.  
-> No API calls, sign-in flows, or platform features are enabled, nothing is sent anywhere.  
-> Some internal code paths connect to [Screenity Pro](https://screenity.io/pro), but these are only active in the official Chrome Store version.
+## Configurações da marca
 
-You can run Screenity locally without having to install it from the Chrome Store. Here's how:
+Links e nomes ficam em [`src/brand.config.js`](src/brand.config.js). Depois da primeira publicação, preencha `storeUrl` com o link da extensão na loja.
 
-1. Download the latest Build.zip from the [releases page](https://github.com/alyssaxuu/screenity/releases)
-2. Load the extension by pasting `chrome://extensions/` in the address bar, and [enabling developer mode](https://developer.chrome.com/docs/extensions/mv2/faq/#:~:text=You%20can%20start%20by%20turning,a%20packaged%20extension%2C%20and%20more.).
-3. Drag the folder that contains the code (make sure it's a folder and not a ZIP file, so unzip first), or click on the "Load unpacked" button and locate the folder.
-4. That's it, you should now be able to use Screenity locally. [Follow these instructions](#enabling-save-to-google-drive) to set up the Google Drive integration.
+## Salvar no Google Drive (opcional)
 
-<small>Self-hosting is totally fine for personal, educational, or internal use.
-If you’re thinking of building a commercial product from this, feel free to [reach out](mailto:alyssa@screenity.io), I’m open to chatting 💜</small>
+1. No [Google Cloud Console](https://console.cloud.google.com/apis/credentials), crie **Credenciais → ID do cliente OAuth → Extensão do Chrome**, informando o ID da extensão publicada.
+2. Ative a **Google Drive API** no mesmo projeto.
+3. Adicione ao `src/manifest.json`:
+   ```json
+   "oauth2": {
+     "client_id": "SEU_CLIENT_ID.apps.googleusercontent.com",
+     "scopes": ["https://www.googleapis.com/auth/drive.file"]
+   }
+   ```
+   e inclua `"identity"` em `permissions` (já está lá).
 
-## Creating a development version
+## Rodar localmente
 
-> ❗️ Note that the license has changed to [GPLv3](https://github.com/alyssaxuu/screenity/blob/master/LICENSE) for the current MV3 version (Screenity version 3.0.0 and higher). Make sure to read the license and the [Terms of Service](https://screenity.io/en/terms/) regarding intellectual property.
+```bash
+npm ci
+npm run build:release   # gera a pasta build/
+```
 
-1. Check if your [Node.js](https://nodejs.org/) version is >= **14**.
-2. Clone this repository.
-3. Run `npm install` to install dependencies.
-4. Run `npm start` to start the local development server.
-5. Open `chrome://extensions/` in your browser and [enable developer mode](https://developer.chrome.com/docs/extensions/mv2/faq/#:~:text=You%20can%20start%20by%20turning,a%20packaged%20extension%2C%20and%20more.).
-6. Click **Load unpacked** and select the `build` folder.
-7. The extension should now be available locally.  
-   To rebuild after code changes, run `npm run build`.
+Abra `chrome://extensions`, ative o **Modo do desenvolvedor**, clique em **Carregar sem compactação** e selecione a pasta `build`.
 
-### Enabling Save to Google Drive
+## Licença
 
-To enable the Google Drive Upload (authorization consent screen) you must change the client_id in the manifest.json file with your linked extension key.
-
-You can create it accessing [Google Cloud Console](https://console.cloud.google.com/apis/credentials) and selecting Create Credential > OAuth Client ID > Chrome App. To create a persistent extension key, you can follow the steps detailed [here](https://developer.chrome.com/docs/extensions/reference/manifest/key).
-
-## Acknowledgements
-
-- Thanks to [HelpKit](https://www.helpkit.so/) for sponsoring this project by hosting the [Screenity Help Center](https://help.screenity.io/).
-- Thanks to [Mei Xuan](https://www.behance.net/meixuanloo) for helping with the Chinese translation of the extension.
-
-If you need any help, or want to become a Screenity expert, you can browse articles and guides in the [help center](https://help.screenity.io). You can also submit any feedback or ideas in this [form](https://tally.so/r/3ElpXq), or contact through [this page](https://help.screenity.io/contact)
+GPL-3.0 — veja [LICENSE](LICENSE). Como exige a licença, o código-fonte deste fork é público e qualquer versão distribuída mantém a mesma licença e os créditos ao projeto original.

@@ -16,7 +16,7 @@ const RecorderShell = ({
       <img
         className="logo"
         src={chrome.runtime.getURL("assets/logo-text.svg")}
-        alt="Screenity logo"
+        alt="Gravador XOPI"
       />
       <div className="middle-area">
         <img

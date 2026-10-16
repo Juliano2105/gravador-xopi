@@ -84,6 +84,7 @@ import {
   diagEvent,
 } from "../../utils/diagnosticLog";
 import { supportContextQuery } from "../../utils/buildSupportContext";
+import { BRAND } from "../../../brand.config";
 
 const API_BASE = process.env.SCREENITY_API_BASE_URL;
 const APP_BASE = process.env.SCREENITY_APP_BASE;
@@ -135,6 +136,7 @@ const REVIEW_GATE = {
 // "used the result" gate). Any uncertain signal returns false; the failure keys
 // below reset each attempt, so only the most recent recording counts.
 const shouldShowReviewPrompt = async () => {
+  if (!BRAND.storeUrl) return false;
   try {
     const s = await chrome.storage.local.get([
       "reviewPromptState",
@@ -1766,7 +1768,7 @@ export const setupHandlers = () => {
 
   registerMessage("review-screenity", () =>
     createTab(
-      "https://chrome.google.com/webstore/detail/screenity-screen-recorder/kbbdabhdfibnancpjfhlkhafgdilcnji/reviews",
+      BRAND.storeUrl || BRAND.repoUrl,
       true,
     ),
   );
@@ -1779,7 +1781,7 @@ export const setupHandlers = () => {
         ? message.source
         : "extension";
     return createTab(
-      `https://screenity.io/?ref=${encodeURIComponent(source)}`,
+      BRAND.repoUrl,
       true,
     );
   });
@@ -1802,7 +1804,7 @@ export const setupHandlers = () => {
     ),
   );
   registerMessage("join-waitlist", () =>
-    createTab("https://tally.so/r/npojNV", true),
+    createTab(BRAND.repoUrl, true),
   );
   registerMessage("chrome-update-info", () =>
     createTab(
@@ -1824,7 +1826,7 @@ export const setupHandlers = () => {
     ),
   );
   registerMessage("open-home", () =>
-    createTab("https://screenity.io/", true),
+    createTab(BRAND.repoUrl, true),
   );
   registerMessage("report-bug", async (message) => {
     const qs = await supportContextQuery({
@@ -1832,7 +1834,8 @@ export const setupHandlers = () => {
       source: "settings",
     });
     const zipParam = message?.zipBundled ? "&zipBundled=1" : "";
-    createTab(`https://tally.so/r/3ElpXq?${qs}${zipParam}`, true);
+    void qs; void zipParam;
+    createTab(BRAND.issuesUrl, true);
   });
   registerMessage("report-error", async (message) => {
     const errorCode = message?.errorCode || null;
@@ -1861,9 +1864,10 @@ export const setupHandlers = () => {
 
     const zipParam = message?.zipBundled ? "&zipBundled=1" : "";
     if (isLoggedIn) {
-      createTab(`https://tally.so/r/310MNg?extension=true&${qs}`, true);
+      void qs; void zipParam;
+      createTab(BRAND.issuesUrl, true);
     } else {
-      createTab(`https://tally.so/r/3ElpXq?feedbackType=Bug&${qs}${zipParam}`, true);
+      createTab(BRAND.issuesUrl, true);
     }
   });
   registerMessage("clear-recordings", () => clearAllRecordings());
@@ -3016,7 +3020,8 @@ export const setupHandlers = () => {
       includeRecordingState: true,
       source: "review-prompt",
     });
-    createTab(`https://tally.so/r/3ElpXq?${qs}`, true);
+    void qs;
+    createTab(BRAND.issuesUrl, true);
   });
   registerMessage("clear-recording-alarm", async () => {
     await chrome.alarms.clear("recording-alarm");

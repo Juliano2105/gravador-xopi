@@ -120,8 +120,8 @@ const startMediaSession = (state) => {
     if (typeof navigator === "undefined" || !navigator.mediaSession) return;
     if (typeof window.MediaMetadata === "function") {
       navigator.mediaSession.metadata = new window.MediaMetadata({
-        title: "Screenity recording",
-        artist: "Screenity",
+        title: "Gravação XOPI",
+        artist: "Gravador XOPI",
       });
     }
     navigator.mediaSession.playbackState = "playing";

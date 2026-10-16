@@ -1,0 +1,98 @@
+# Gravador XOPI — build e publicação automática na Chrome Web Store.
+#
+# Como funciona:
+#   - Todo push na branch "main" que mexa no código compila a extensão,
+#     gera um número de versão novo automaticamente (ex.: 1.0.37) e
+#     envia para a Chrome Web Store. Depois da revisão do Google, todo
+#     mundo que tem a extensão instalada recebe a atualização sozinho.
+#   - O .zip compilado também fica disponível na aba "Actions" do GitHub.
+#   - Para fazer um commit SEM publicar, coloque [skip publish] na mensagem.
+#
+# Segredos necessários (Settings > Secrets and variables > Actions):
+#   CWS_EXTENSION_ID   ID da extensão (aparece no painel da loja após o 1º envio manual)
+#   CWS_CLIENT_ID      OAuth Client ID do Google Cloud (tipo "App para computador")
+#   CWS_CLIENT_SECRET  OAuth Client Secret
+#   CWS_REFRESH_TOKEN  Refresh token com o escopo chromewebstore
+# Enquanto os segredos não existirem, o workflow só compila e guarda o .zip.
+
+name: Publicar na Chrome Web Store
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "package.json"
+      - "package-lock.json"
+      - "webpack.config.js"
+      - ".github/workflows/publicar-chrome-web-store.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: publicar-cws
+  cancel-in-progress: false
+
+jobs:
+  build-e-publicar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci --no-audit --no-fund
+
+      - name: Definir versão automática
+        id: versao
+        run: |
+          BASE=$(node -p "require('./package.json').version.split('.').slice(0,2).join('.')")
+          VERSAO="$BASE.${{ github.run_number }}"
+          echo "versao=$VERSAO" >> "$GITHUB_OUTPUT"
+          echo "Versão desta publicação: $VERSAO"
+
+      - name: Compilar (modo local, sem nuvem)
+        run: npm run build:release
+
+      - name: Aplicar versão no manifest compilado
+        run: |
+          node -e "
+            const fs = require('fs');
+            const p = 'build/manifest.json';
+            const m = JSON.parse(fs.readFileSync(p, 'utf8'));
+            m.version = '${{ steps.versao.outputs.versao }}';
+            fs.writeFileSync(p, JSON.stringify(m));
+          "
+
+      - name: Verificar que não há segredos no pacote
+        run: node scripts/verify-no-secrets.mjs
+
+      - name: Gerar .zip
+        run: |
+          cd build && zip -qr "../gravador-xopi-${{ steps.versao.outputs.versao }}.zip" . && cd ..
+          ls -lh gravador-xopi-*.zip
+
+      - name: Guardar .zip no GitHub
+        uses: actions/upload-artifact@v4
+        with:
+          name: gravador-xopi-${{ steps.versao.outputs.versao }}
+          path: gravador-xopi-${{ steps.versao.outputs.versao }}.zip
+          retention-days: 90
+
+      - name: Enviar e publicar na Chrome Web Store
+        if: ${{ !contains(github.event.head_commit.message, '[skip publish]') }}
+        env:
+          EXTENSION_ID: ${{ secrets.CWS_EXTENSION_ID }}
+          CLIENT_ID: ${{ secrets.CWS_CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.CWS_CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.CWS_REFRESH_TOKEN }}
+        run: |
+          if [ -z "$EXTENSION_ID" ] || [ -z "$CLIENT_ID" ] || [ -z "$CLIENT_SECRET" ] || [ -z "$REFRESH_TOKEN" ]; then
+            echo "::notice::Segredos da Chrome Web Store ainda não configurados — só o .zip foi gerado."
+            exit 0
+          fi
+          npx chrome-webstore-upload --source "gravador-xopi-${{ steps.versao.outputs.versao }}.zip" --max-await-in-progress 120
