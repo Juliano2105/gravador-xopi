@@ -73,6 +73,16 @@ const RecordingTab = (props) => {
     }));
     chrome.storage.local.set({ recordingType: tab });
 
+    // Gravador XOPI: ao escolher "Área", já liga o seletor de retângulo
+    // (no Screenity original ele vinha desligado e gravava a aba inteira).
+    if (tab === "region" && typeof CropTarget !== "undefined") {
+      setContentState((prevContentState) => ({
+        ...prevContentState,
+        customRegion: true,
+      }));
+      chrome.storage.local.set({ customRegion: true, region: true });
+    }
+
     if (tab === "camera") {
       chrome.runtime.sendMessage({ type: "camera-only-update" });
     } else {
